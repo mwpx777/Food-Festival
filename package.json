@@ -21,6 +21,7 @@
   "homepage": "https://github.com/mwpx777/Food-Festival#readme",
   "devDependencies": {
     "webpack": "^5.33.2",
+    "webpack-bundle-analyzer": "^4.4.1",
     "webpack-cli": "^4.6.0"
   },
   "dependencies": {
