@@ -5,7 +5,8 @@ const fileLoader = require('file-loader')
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 
 
-module.exports = {
+// module.exports = {
+  const config ={
     // these are entry points for all of the js files
     entry: {
         app: './assets/js/script.js',
