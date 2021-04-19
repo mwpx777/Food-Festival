@@ -16,9 +16,11 @@ const VERSION = "version_01";
 const CACHE_NAME = APP_PREFIX + VERSION;
 
 self.addEventListener('install', function (e) {
+    // this is method telling browser to wait until this method is finished executing
     e.waitUntil(
         caches.open(CACHE_NAME).then(function (cache) {
             console.log('installing cache : ' + CACHE_NAME)
+            // this will add all files in FILES TO CACHE array to the cache
             return cache.addAll(FILES_TO_CACHE)
         })
     )
@@ -38,15 +40,20 @@ self.addEventListener('activate', function (e) {
             cacheKeepList.push(CACHE_NAME);
 
             // this promise resolves once all old versions of the cache are deleted
+            // function map() through keyList with arguments key and i
             return Promise.all(keyList.map(function (key, i) {
+                // if item is not found in cacheKeepList
                 if(cacheKeepList.indexOf(key) === -1){
                     console.log('deleting cache: ' + keyList[i]);
+                    // if this item isn't found in keepList, delete from cache
                     return caches.delete(keyList[i]);
                 }
             }));
         }))
 });
 
+// tells browser what to do with fetch requests
+// passing in 2 arguments fetch and the function for the event
 self.addEventListener('fetch', function (e){
     console.log('fetch request: ' + e.request.url)
     // this is method on the event object to intercept fetch requests
@@ -55,7 +62,7 @@ self.addEventListener('fetch', function (e){
         caches.match(e.request).then(function (request) {
             if(request){
                 console.log('responding with the cache: ' + e.request.url)
-                return request
+                return request;
             } else {
                 // if file isn't stored in cache, will proceed with normal fetch request
                 console.log('file is not cached, fetching: ' + e.request.url)
