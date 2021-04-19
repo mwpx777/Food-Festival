@@ -74,3 +74,5 @@ module.exports = {
       ],
     mode: 'development'
 };
+
+module.exports = config;
