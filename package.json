@@ -8,7 +8,7 @@
     "build": "webpack",
     "start:dev": "webpack serve",
     "test": "echo \"Error: no test specified\" && exit 1"
-},
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mwpx777/Food-Festival.git"
@@ -25,7 +25,8 @@
     "webpack": "^5.33.2",
     "webpack-bundle-analyzer": "^4.4.1",
     "webpack-cli": "^4.6.0",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-server": "^3.11.2",
+    "webpack-pwa-manifest": "^4.3.0"
   },
   "dependencies": {
     "bootstrap": "^4.6.0",
